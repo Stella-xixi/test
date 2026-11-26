@@ -9,7 +9,7 @@
         <th>Roll No</th><th>Name</th><th>Semester</th><th>CGPA</th><th>Phone</th>
     </tr>
     <tr th:each="s : ${students}">
-        <td th:text="${s.rollNo}"></td>
+        <td><a th:href="@{/display/{rollNo}(rollNo=${s.rollNo})}" th:text="${s.rollNo}"></a></td>
         <td th:text="${s.name}"></td>
         <td th:text="${s.semester}"></td>
         <td th:text="${s.cgpa}"></td>
