@@ -34,8 +34,12 @@ public class StudentController {
     }
 
     @GetMapping("/display")
-    public String displayAll(Model model) {
-        model.addAttribute("students", repository.findAll());
+    public String displayAll(@RequestParam(required = false, defaultValue = "") String name, Model model) {
+        String searchName = name.trim();
+        model.addAttribute("name", searchName);
+        model.addAttribute("students", searchName.isEmpty()
+                ? repository.findAll()
+                : repository.findByNameContainingIgnoreCase(searchName));
         return "display";
     }
 
