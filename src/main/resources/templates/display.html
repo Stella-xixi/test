@@ -4,6 +4,11 @@
 <head><title>All Students</title></head>
 <body>
 <h2>All Students</h2>
+<form action="/display" method="get">
+    <input name="name" placeholder="Search by name" th:value="${name}" />
+    <button type="submit">Search</button>
+    <a href="/display">Clear</a>
+</form>
 <table border="1">
     <tr>
         <th>Roll No</th><th>Name</th><th>Semester</th><th>CGPA</th><th>Phone</th>
