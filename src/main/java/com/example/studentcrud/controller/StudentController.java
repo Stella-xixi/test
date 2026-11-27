@@ -28,8 +28,8 @@ public class StudentController {
 
     @PostMapping("/delete")
     public String deleteStudent(@RequestParam String rollNo, Model model) {
-        repository.deleteById(rollNo);
-        model.addAttribute("message", "Student Deleted!");
+        int deletedStudents = repository.deleteByRollNo(rollNo.trim());
+        model.addAttribute("message", deletedStudents > 0 ? "Student Deleted!" : "No student found.");
         return "index";
     }
 
