@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Students by Semester</title></head>
+<body>
+<h2>Students by Semester</h2>
+<p th:if="${studentCounts.isEmpty()}">No students to summarize.</p>
+<table border="1" th:unless="${studentCounts.isEmpty()}">
+    <tr>
+        <th scope="col">Semester</th>
+        <th scope="col">Students</th>
+    </tr>
+    <tr th:each="entry : ${studentCounts}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+</table>
+<a href="/" th:href="@{/}">Back</a>
+</body>
+</html>
